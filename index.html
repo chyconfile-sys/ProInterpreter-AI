@@ -6,9 +6,9 @@
     <meta name="theme-color" content="#102a43" />
     <meta
       name="description"
-      content="Chinese-English professional interpreter training for medical and workplace communication."
+      content="ProInterpreter AI medical interpreter workspace with Chinese pinyin, transcript history, and bilingual practice."
     />
-    <title>ProInterpreter AI — Medical interpreting and language practice</title>
+    <title>ProInterpreter AI — Medical Interpreter</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -16,46 +16,32 @@
       <aside class="sidebar" id="sidebar">
         <a class="brand" href="#home" aria-label="ProInterpreter AI home">
           <span class="brand-mark">译</span>
-          <span>
-            <b>ProInterpreter</b>
-            <small>AI WORKPLACE COACH</small>
-          </span>
+          <span><b>ProInterpreter</b><small>AI WORKPLACE COACH</small></span>
         </a>
 
         <div class="workspace-label">WORKSPACE</div>
 
         <nav class="nav" aria-label="Main navigation">
           <button class="nav-item active" type="button" data-page="home"><span>⌂</span> Overview</button>
-          <button class="nav-item" type="button" data-page="vocabulary"><span>▤</span> Vocabulary library</button>
-          <button class="nav-item" type="button" data-page="practice"><span>⇄</span> Interpretation practice</button>
+          <button class="nav-item" type="button" data-page="vocabulary"><span>▤</span> Vocabulary</button>
+          <button class="nav-item" type="button" data-page="practice"><span>⇄</span> Practice</button>
           <button class="nav-item" type="button" data-page="work"><span>◉</span> Work / Meeting</button>
-          <button class="nav-item" type="button" data-page="scenarios"><span>◎</span> Workplace scenarios</button>
-          <button class="nav-item" type="button" data-page="quiz"><span>✓</span> Quick quiz</button>
-          <button class="nav-item" type="button" data-page="glossary"><span>☆</span> My glossary <span class="nav-count" id="glossaryCount">0</span></button>
         </nav>
-
-        <div class="sidebar-bottom">
-          <div class="coach-card">
-            <div class="coach-icon">✦</div>
-            <b>Every expert starts somewhere.</b>
-            <p>Practice a little each day and build confidence for the real conversation.</p>
-          </div>
-        </div>
       </aside>
 
       <main class="main-content">
         <header class="topbar">
           <button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu">☰</button>
-          <div class="breadcrumb">Learning space <span>/</span> <b id="breadcrumbPage">Overview</b></div>
+          <div class="breadcrumb">Interpreter space <span>/</span> <b id="breadcrumbPage">Overview</b></div>
         </header>
 
         <div class="page-wrap">
           <section class="page active" id="page-home">
             <div class="welcome-row">
               <div>
-                <div class="eyebrow">YOUR PROFESSIONAL LANGUAGE PARTNER</div>
+                <div class="eyebrow">MEDICAL INTERPRETING</div>
                 <h1>Interpret with <span>confidence.</span></h1>
-                <p class="lead">Learn field-specific vocabulary, rehearse hospital and workplace conversations, and train for bilingual communication.</p>
+                <p class="lead">Professional medical interpreting workspace with bilingual transcript support, vocabulary lookup, and simplified Chinese pinyin.</p>
               </div>
             </div>
 
@@ -63,165 +49,123 @@
               <article class="stat-card">
                 <div class="stat-icon blue">▤</div>
                 <div>
-                  <span>Terms in your library</span>
-                  <strong id="totalTerms">24</strong>
-                  <small>Across key industries</small>
+                  <span>Medical terms</span>
+                  <strong id="totalTerms">28</strong>
+                  <small>Clinical, symptoms, meds</small>
                 </div>
               </article>
               <article class="stat-card">
                 <div class="stat-icon green">✚</div>
                 <div>
-                  <span>Medical sessions</span>
-                  <strong>12</strong>
-                  <small>Ready for clinic practice</small>
+                  <span>Mode</span>
+                  <strong>Work</strong>
+                  <small>Silent text only</small>
                 </div>
               </article>
               <article class="stat-card">
                 <div class="stat-icon orange">◎</div>
                 <div>
-                  <span>Live mode</span>
-                  <strong>Work</strong>
-                  <small>Silent transcript, no audio output</small>
+                  <span>Output</span>
+                  <strong>Text</strong>
+                  <small>No automatic audio</small>
                 </div>
               </article>
             </div>
-
-            <div class="section-heading">
-              <div>
-                <div class="eyebrow">YOUR LEARNING PATH</div>
-                <h2>Choose your industry</h2>
-                <p>Start with the vocabulary and scenarios most likely to appear in professional communication.</p>
-              </div>
-              <button class="ghost-link" type="button" data-page="vocabulary">Open library</button>
-            </div>
-
-            <div class="industry-grid" id="industryGrid"></div>
 
             <div class="home-bottom-grid">
               <article class="panel next-panel">
                 <div class="panel-title-row">
                   <div>
-                    <div class="eyebrow">A GOOD PLACE TO START</div>
-                    <h3>Today's practice</h3>
+                    <div class="eyebrow">BEGIN HERE</div>
+                    <h3>Medical glossary</h3>
                   </div>
-                  <span class="badge">Medical</span>
+                  <span class="badge">Live</span>
                 </div>
-                <p class="panel-body">Practise key phrases used in patient intake, treatment planning, symptoms, and clinical instructions.</p>
-                <button class="primary-btn" type="button" data-page="practice">Start practice</button>
+                <p class="panel-body">Search common terms such as symptoms, allergies, blood pressure, tests, and patient instructions.</p>
+                <button class="primary-btn" type="button" data-page="vocabulary">Open glossary</button>
               </article>
 
               <article class="panel next-panel">
                 <div class="panel-title-row">
                   <div>
-                    <div class="eyebrow">REAL-WORLD MODE</div>
-                    <h3>Work / Meeting</h3>
+                    <div class="eyebrow">WORK MODE</div>
+                    <h3>Interpreter workspace</h3>
                   </div>
                   <span class="badge soft">Silent</span>
                 </div>
-                <p class="panel-body">Use the professional interpreter workspace for on-screen transcription, translation, and vocabulary lookup.</p>
+                <p class="panel-body">Use the professional interpretation mode to display the original speech, translated text, and pinyin in a readable conversation format.</p>
                 <button class="primary-btn" type="button" data-page="work">Open workspace</button>
               </article>
-            </div>
-
-            <div class="disclaimer">
-              Learning support only. Always verify critical medical, legal, engineering, and safety terminology with qualified professionals.
             </div>
           </section>
 
           <section class="page" id="page-vocabulary">
             <div class="page-intro">
-              <div class="eyebrow">BUILD YOUR WORD BANK</div>
-              <h1>Vocabulary library</h1>
-              <p>Search and review terminology with Chinese characters, pinyin, and practical examples.</p>
+              <div class="eyebrow">LOOKUP</div>
+              <h1>Medical vocabulary</h1>
+              <p>Search and review common Chinese-English interpreting terms. Each Chinese entry includes pinyin directly under the characters.</p>
             </div>
 
             <div class="toolbar">
-              <input id="vocabSearch" type="search" placeholder="Search vocabulary..." aria-label="Search vocabulary" />
-              <select id="industryFilter" aria-label="Filter by industry">
-                <option value="all">All industries</option>
-              </select>
-              <select id="levelFilter" aria-label="Filter by level">
-                <option value="all">All levels</option>
-                <option value="Beginner">Beginner</option>
-                <option value="Intermediate">Intermediate</option>
-              </select>
+              <input id="vocabSearch" type="search" placeholder="Search English, Chinese, or pinyin..." aria-label="Search medical terminology" />
             </div>
 
-            <div class="vocab-grid" id="vocabGrid"></div>
+            <div id="vocabGrid" class="vocab-grid"></div>
           </section>
 
           <section class="page" id="page-practice">
             <div class="page-intro">
-              <div class="eyebrow">PRACTISE BOTH DIRECTIONS</div>
-              <h1>Interpretation practice</h1>
-              <p>Try bilingual interpretation with example scenarios and guided answers.</p>
+              <div class="eyebrow">PRACTICE</div>
+              <h1>Practice / Learning mode</h1>
+              <p>Role-play clinical questions and patient instructions. Audio playback is only activated when chosen by the user.</p>
             </div>
 
-            <div class="practice-header">
-              <select id="practiceIndustry" aria-label="Select practice industry"></select>
-              <div class="direction-toggle">
-                <button class="direction-btn active" type="button" data-direction="zh-en">ZH → EN</button>
-                <button class="direction-btn" type="button" data-direction="en-zh">EN → ZH</button>
+            <div class="practice-card">
+              <div class="practice-block">
+                <span class="label-tag">Scenario</span>
+                <h2>Doctor–patient consultation</h2>
+                <p class="script">医生：您最近有什么不舒服？</p>
+                <div class="pinyin-block">nǐ zuìjìn yǒu shénme bù shūfu?</div>
+                <p class="script">患者：我喉咙痛，咳嗽，体温有点高。</p>
+                <div class="pinyin-block">wǒ hóulóng tòng, késòu, tǐwēn yǒudiǎn gāo.</div>
+                <p class="script">医生：请描述一下您的症状。</p>
+                <div class="pinyin-block">qǐng miáoshù yīxià nín de zhèngzhuàng.</div>
+                <p class="translation">English: Please describe your symptoms.</p>
               </div>
             </div>
-
-            <div id="practiceCard" class="practice-card"></div>
           </section>
 
           <section class="page" id="page-work">
             <div class="page-intro">
-              <div class="eyebrow">MEDICAL INTERPRETING</div>
-              <h1>Work / Meeting mode</h1>
-              <p>Silent on-screen transcription and translation for medical conversations.</p>
-            </div>
-
-            <div class="mode-switcher" role="tablist" aria-label="Interpreter mode switcher">
-              <button class="mode-tab active" type="button" data-mode="work">Work / Meeting</button>
-              <button class="mode-tab" type="button" data-mode="practice">Practice / Learning</button>
+              <div class="eyebrow">WORK / MEETING</div>
+              <h1>Medical interpreting workspace</h1>
+              <p>Silent on-screen transcription and translation. Real speech recognition and translation require a configured backend.</p>
             </div>
 
             <div class="work-panel">
               <div class="config-grid">
                 <label>
-                  Mode
-                  <select id="workModeSelect">
-                    <option value="work">Work / Meeting</option>
-                    <option value="practice">Practice / Learning</option>
-                  </select>
-                </label>
-
-                <label>
                   Industry
-                  <select id="workIndustrySelect">
+                  <select id="industrySelect">
                     <option value="medical">Medical</option>
-                    <option value="legal">Legal</option>
-                    <option value="business">Business</option>
-                    <option value="logistics">Logistics</option>
+                    <option value="general">General</option>
                   </select>
                 </label>
 
                 <label>
                   Languages
-                  <select id="languagePairSelect">
-                    <option value="zh-en">Mandarin Chinese ↔ English</option>
-                    <option value="en-zh">English ↔ Mandarin Chinese</option>
+                  <select id="languageSelect">
+                    <option value="zh-en">Mandarin ↔ English</option>
+                    <option value="en-zh">English ↔ Mandarin</option>
                   </select>
                 </label>
 
                 <label>
                   Speech direction
                   <select id="speechDirectionSelect">
-                    <option value="auto">Automatic detection</option>
+                    <option value="auto">Automatic</option>
                     <option value="en">English</option>
-                    <option value="zh">Mandarin Chinese</option>
-                  </select>
-                </label>
-
-                <label>
-                  Output
-                  <select id="outputModeSelect">
-                    <option value="silent-text">Silent, on-screen text only</option>
-                    <option value="text-and-audio">Text + audio</option>
+                    <option value="zh">Mandarin</option>
                   </select>
                 </label>
               </div>
@@ -235,11 +179,7 @@
               </div>
 
               <div id="serviceStatus" class="service-status warning" role="status" aria-live="polite">
-                Speech translation service not configured. Browser microphone capture requires explicit permission.
-              </div>
-
-              <div id="practiceModeInfo" class="practice-mode-info hidden" aria-live="polite">
-                Practice / Learning audio playback is intentionally disabled until the user chooses to activate it explicitly. Work / Meeting mode stays silent.
+                Speech translation service not configured. Browser microphone capture requires explicit permission and a secure backend for translation.
               </div>
 
               <div class="transcript-shell">
@@ -253,64 +193,16 @@
               <div class="work-meta">
                 <h3>Medical vocabulary</h3>
                 <div class="search-row">
-                  <input id="workVocabSearch" type="search" placeholder="Search medical terminology..." aria-label="Search medical vocabulary" />
+                  <input id="medicalVocabSearch" type="search" placeholder="Search medical terminology..." aria-label="Search medical vocabulary" />
                 </div>
-                <div id="workVocabularyList" class="vocab-list"></div>
+                <div id="medicalVocabularyList" class="vocab-list"></div>
               </div>
 
               <div class="privacy-note">
-                Privacy notice: audio is only captured after explicit user action. The app does not send transcripts to analytics or store them persistently without clear user consent. Translation is assistance, not medical certification. This app does not replace a qualified interpreter or clinician.
+                Privacy notice: microphone access is only requested after explicit user action. The app does not send transcripts to analytics or store them persistently without user consent. Translation is assistance, not certified medical advice.
               </div>
             </div>
           </section>
-
-          <section class="page" id="page-scenarios">
-            <div class="page-intro">
-              <div class="eyebrow">REAL-WORLD REHEARSAL</div>
-              <h1>Workplace scenarios</h1>
-              <p>Refine your interpretation in realistic situations for healthcare and professional communication.</p>
-            </div>
-
-            <div class="scenario-filters" id="scenarioFilters"></div>
-            <div class="scenario-grid" id="scenarioGrid"></div>
-          </section>
-
-          <section class="page" id="page-quiz">
-            <div class="page-intro">
-              <div class="eyebrow">CHECK WHAT YOU KNOW</div>
-              <h1>Quick quiz</h1>
-              <p>Review key vocabulary and reinforce your understanding.</p>
-            </div>
-
-            <div class="quiz-card">
-              <div class="quiz-meta">
-                <span id="quizProgress">QUESTION 1 OF 5</span>
-                <div class="progress-bar"><span id="quizProgressBar"></span></div>
-              </div>
-              <div id="quizQuestion" class="quiz-question"></div>
-              <div id="quizOptions" class="quiz-options"></div>
-              <div id="quizFeedback" class="quiz-feedback"></div>
-            </div>
-          </section>
-
-          <section class="page" id="page-glossary">
-            <div class="page-intro">
-              <div class="eyebrow">YOUR PERSONAL WORD BANK</div>
-              <h1>My glossary</h1>
-              <p>Keep important phrases and terms close at hand for your next session.</p>
-            </div>
-
-            <div class="toolbar small">
-              <input id="glossarySearch" type="search" placeholder="Search saved words..." aria-label="Search saved glossary items" />
-            </div>
-
-            <div id="glossaryList" class="glossary-list"></div>
-          </section>
-
-          <footer class="footer">
-            <span>© 2026 ProInterpreter AI · Built for confident communication</span>
-            <span>Learn · Practise · Grow</span>
-          </footer>
         </div>
       </main>
     </div>
