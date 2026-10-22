@@ -1,53 +1,321 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#102a43" />
-  <meta name="description" content="Build confidence for Chinese-English interpreting with industry vocabulary, workplace scenarios, quizzes, and a personal glossary." />
-  <title>ProInterpreter AI — Practice for the job</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <div class="app-shell">
-    <aside class="sidebar" id="sidebar">
-      <a class="brand" href="#home" aria-label="ProInterpreter AI home"><span class="brand-mark">译</span><span><b>ProInterpreter</b><small>AI WORKPLACE COACH</small></span></a>
-      <div class="workspace-label">WORKSPACE</div>
-      <nav class="nav" aria-label="Main navigation">
-        <button class="nav-item active" data-page="home"><span>⌂</span> Overview</button>
-        <button class="nav-item" data-page="vocabulary"><span>▤</span> Vocabulary library</button>
-        <button class="nav-item" data-page="practice"><span>⇄</span> Interpretation practice</button>
-        <button class="nav-item" data-page="scenarios"><span>◉</span> Workplace scenarios</button>
-        <button class="nav-item" data-page="quiz"><span>✓</span> Quick quiz</button>
-        <button class="nav-item" data-page="glossary"><span>☆</span> My glossary <span class="nav-count" id="glossaryCount">0</span></button>
-      </nav>
-      <div class="sidebar-bottom"><div class="coach-card"><div class="coach-icon">✦</div><b>Every expert starts somewhere.</b><p>Practise a little every day and build confidence one term at a time.</p><button class="text-button" data-go="practice">Start practising <span>→</span></button></div><div class="profile"><div class="avatar">PI</div><div><b>My learning space</b><small>Beginner pathway</small></div><span class="profile-dots">•••</span></div></div>
-    </aside>
-    <main class="main-content">
-      <header class="topbar"><button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu">☰</button><div class="breadcrumb">Learning space <span>/</span> <b id="breadcrumbPage">Overview</b></div><div class="top-actions"><span class="today-pill"><span class="live-dot"></span> Your practice space</span><button class="icon-button" id="helpButton" title="About this demo">?</button></div></header>
-      <div class="page-wrap">
-        <section class="page active" id="page-home">
-          <div class="welcome-row"><div><div class="eyebrow">YOUR PROFESSIONAL LANGUAGE PARTNER</div><h1>Interpret with <span>confidence.</span></h1><p class="lead">Learn the vocabulary, practise real workplace conversations, and prepare for your next assignment.</p></div><div class="welcome-art"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="speech speech-cn">你好</div><div class="speech speech-en">Hello!</div><div class="art-center">译</div><span class="spark spark-a">✦</span><span class="spark spark-b">✧</span></div></div>
-          <div class="stats-grid"><article class="stat-card"><div class="stat-icon blue">▤</div><div><span>Terms in your library</span><strong id="totalTerms">24</strong><small>Across key industries</small></div></article><article class="stat-card"><div class="stat-icon mint">☆</div><div><span>Saved vocabulary</span><strong id="savedTerms">0</strong><small>Your personal glossary</small></div></article><article class="stat-card"><div class="stat-icon peach">✓</div><div><span>Quiz questions tried</span><strong id="questionsTried">0</strong><small>Keep building your skills</small></div></article></div>
-          <div class="section-heading"><div><div class="eyebrow">YOUR LEARNING PATH</div><h2>Choose your industry</h2><p>Start with the vocabulary you are most likely to meet at work.</p></div><button class="outline-button" data-go="vocabulary">Explore all terms <span>→</span></button></div>
-          <div class="industry-grid" id="industryGrid"></div>
-          <div class="home-bottom-grid"><article class="panel next-panel"><div class="panel-title-row"><div><div class="eyebrow">A GOOD PLACE TO START</div><h3>Today's practice</h3></div><span class="tag tag-blue">5–10 MIN</span></div><div class="lesson-row"><div class="lesson-symbol">中</div><div class="lesson-copy"><b>Essential workplace phrases</b><p>Practise introductions and asking for clarification.</p><div class="progress-track"><span style="width:18%"></span></div></div><button class="round-arrow" data-go="practice" aria-label="Start lesson">→</button></div><div class="panel-foot"><span>Small steps make skilled interpreters.</span><span>✦</span></div></article><article class="panel tip-panel"><div class="tip-label"><span>✦</span> INTERPRETER TIP</div><h3>It's okay to ask for clarification.</h3><p>Accuracy matters more than pretending you heard everything. Practise polite phrases for asking a speaker to repeat or explain a term.</p><button class="text-button" data-go="scenarios">Practise a scenario <span>→</span></button><div class="tip-watermark">“</div></article></div>
-          <div class="disclaimer">Learning support only. Always verify critical medical, legal, engineering, and safety terminology with qualified professionals.</div>
-        </section>
-        <section class="page" id="page-vocabulary"><div class="page-intro"><div class="eyebrow">BUILD YOUR WORD BANK</div><h1>Vocabulary library</h1><p>Learn terms in context, with Chinese characters, Pinyin, and practical examples.</p></div><div class="toolbar"><div class="search-wrap"><span>⌕</span><input id="vocabSearch" type="search" placeholder="Search English, Chinese, Pinyin or meaning…" /></div><select id="industryFilter" aria-label="Filter by industry"><option value="all">All industries</option></select><select id="levelFilter" aria-label="Filter by level"><option value="all">All levels</option><option>Beginner</option><option>Intermediate</option></select></div><div class="results-line"><span id="resultCount">24 terms</span><span>Tap the star to save a term to your glossary.</span></div><div class="vocab-list" id="vocabList"></div></section>
-        <section class="page" id="page-practice"><div class="page-intro"><div class="eyebrow">PRACTISE BOTH DIRECTIONS</div><h1>Interpretation practice</h1><p>Try interpreting first. Reveal the reference version when you're ready to compare.</p></div><div class="practice-layout"><div class="panel practice-card"><div class="practice-top"><span class="tag tag-blue">WORKPLACE DRILL</span><span id="practiceNumber">EXERCISE 1</span></div><label class="field-label" for="practiceIndustry">Choose an industry</label><select id="practiceIndustry" class="full-select"></select><div class="direction-switch"><button class="direction-btn active" data-direction="zh-en">中文 → English</button><button class="direction-btn" data-direction="en-zh">English → 中文</button></div><div class="source-box"><div class="source-label"><span class="source-dot"></span> SOURCE SENTENCE</div><div id="sourceSentence" class="source-sentence">请先关闭机器，然后通知维修人员。</div><div id="sourceContext" class="source-context">Factory floor · Safety instruction</div></div><label class="field-label" for="userInterpretation">Your interpretation</label><textarea id="userInterpretation" rows="4" placeholder="Type your interpretation here…"></textarea><div class="practice-actions"><button class="primary-button" id="revealAnswer">Reveal reference answer <span>→</span></button><button class="outline-button" id="nextPractice">Next sentence ↗</button></div><div class="reference-answer hidden" id="referenceAnswer"><div class="reference-title"><span>✓</span> REFERENCE INTERPRETATION</div><p id="answerText"></p><div class="answer-note" id="answerNote"></div></div></div><aside class="panel practice-side"><div class="side-icon">✦</div><h3>How to practise</h3><ol><li><span>1</span>Read or listen carefully to the source.</li><li><span>2</span>Interpret the meaning in your own words.</li><li><span>3</span>Reveal the reference and compare.</li><li><span>4</span>Save unfamiliar terms for revision.</li></ol><div class="side-note">This demo provides reference answers, not automated professional assessment.</div></aside></div></section>
-        <section class="page" id="page-scenarios"><div class="page-intro"><div class="eyebrow">REAL-WORLD REHEARSAL</div><h1>Workplace scenarios</h1><p>Get ready for the conversations you may meet on your first day and beyond.</p></div><div class="scenario-filters" id="scenarioFilters"></div><div class="scenario-grid" id="scenarioGrid"></div><div class="disclaimer">Scenarios are educational examples. Real assignments may require specialist training and verified terminology.</div></section>
-        <section class="page" id="page-quiz"><div class="page-intro"><div class="eyebrow">CHECK WHAT YOU KNOW</div><h1>Quick quiz</h1><p>Answer short questions to reinforce industry vocabulary.</p></div><div class="quiz-layout"><div class="panel quiz-card" id="quizCard"><div class="quiz-top"><span class="tag tag-blue">VOCABULARY CHECK</span><span id="quizProgress">QUESTION 1 OF 5</span></div><div class="quiz-progress"><span id="quizProgressBar"></span></div><div class="quiz-industry" id="quizIndustry">MEDICAL</div><h2 id="quizQuestion">What does “维修” mean in a factory context?</h2><div class="quiz-options" id="quizOptions"></div><div class="quiz-feedback hidden" id="quizFeedback"></div><div class="quiz-footer"><span id="quizScore">Score: 0</span><button class="primary-button" id="quizNext" disabled>Check answer <span>→</span></button></div></div><aside class="panel quiz-aside"><div class="quiz-aside-icon">✓</div><h3>Learning by doing</h3><p>Quizzes help you notice gaps before you meet the vocabulary in a real conversation.</p><div class="quiz-stat"><span>Questions attempted</span><b id="quizAttemptStat">0</b></div><div class="quiz-stat"><span>Correct answers</span><b id="quizCorrectStat">0</b></div><button class="outline-button full-width" id="restartQuiz">Restart quiz</button></aside></div></section>
-        <section class="page" id="page-glossary"><div class="page-intro"><div class="eyebrow">YOUR PERSONAL WORD BANK</div><h1>My glossary</h1><p>Keep important words close at hand for your next shift, project, or meeting.</p></div><div class="toolbar"><div class="search-wrap"><span>⌕</span><input id="glossarySearch" type="search" placeholder="Search your saved terms…" /></div><button class="outline-button" id="exportGlossary">Export CSV ↓</button></div><div id="glossaryContent"></div></section>
-        <footer class="footer"><span>© 2026 ProInterpreter AI · Built for confident communication</span><span>Learn · Practise · Grow</span></footer>
-      </div>
-    </main>
-  </div>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <div class="modal-backdrop hidden" id="helpModal"><div class="modal"><button class="modal-close" id="closeHelp" aria-label="Close">×</button><div class="eyebrow">ABOUT THIS VERSION</div><h2>Welcome to ProInterpreter AI</h2><p>This is a working starter version with industry vocabulary, practice sentences, scenarios, quizzes, and a glossary saved in your browser.</p><p>AI coaching, account sync, and live audio require backend services and API credentials; they are not connected in this starter build. Sample terminology is for learning and should be verified before professional use.</p><button class="primary-button" id="gotIt">Got it</button></div></div>
-  <script src="app.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#102a43" />
+    <meta
+      name="description"
+      content="Chinese-English professional interpreter training for medical and workplace communication."
+    />
+    <title>ProInterpreter AI — Medical interpreting and language practice</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#home" aria-label="ProInterpreter AI home">
+          <span class="brand-mark">译</span>
+          <span>
+            <b>ProInterpreter</b>
+            <small>AI WORKPLACE COACH</small>
+          </span>
+        </a>
+
+        <div class="workspace-label">WORKSPACE</div>
+
+        <nav class="nav" aria-label="Main navigation">
+          <button class="nav-item active" type="button" data-page="home"><span>⌂</span> Overview</button>
+          <button class="nav-item" type="button" data-page="vocabulary"><span>▤</span> Vocabulary library</button>
+          <button class="nav-item" type="button" data-page="practice"><span>⇄</span> Interpretation practice</button>
+          <button class="nav-item" type="button" data-page="work"><span>◉</span> Work / Meeting</button>
+          <button class="nav-item" type="button" data-page="scenarios"><span>◎</span> Workplace scenarios</button>
+          <button class="nav-item" type="button" data-page="quiz"><span>✓</span> Quick quiz</button>
+          <button class="nav-item" type="button" data-page="glossary"><span>☆</span> My glossary <span class="nav-count" id="glossaryCount">0</span></button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="coach-card">
+            <div class="coach-icon">✦</div>
+            <b>Every expert starts somewhere.</b>
+            <p>Practice a little each day and build confidence for the real conversation.</p>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu">☰</button>
+          <div class="breadcrumb">Learning space <span>/</span> <b id="breadcrumbPage">Overview</b></div>
+        </header>
+
+        <div class="page-wrap">
+          <section class="page active" id="page-home">
+            <div class="welcome-row">
+              <div>
+                <div class="eyebrow">YOUR PROFESSIONAL LANGUAGE PARTNER</div>
+                <h1>Interpret with <span>confidence.</span></h1>
+                <p class="lead">Learn field-specific vocabulary, rehearse hospital and workplace conversations, and train for bilingual communication.</p>
+              </div>
+            </div>
+
+            <div class="stats-grid">
+              <article class="stat-card">
+                <div class="stat-icon blue">▤</div>
+                <div>
+                  <span>Terms in your library</span>
+                  <strong id="totalTerms">24</strong>
+                  <small>Across key industries</small>
+                </div>
+              </article>
+              <article class="stat-card">
+                <div class="stat-icon green">✚</div>
+                <div>
+                  <span>Medical sessions</span>
+                  <strong>12</strong>
+                  <small>Ready for clinic practice</small>
+                </div>
+              </article>
+              <article class="stat-card">
+                <div class="stat-icon orange">◎</div>
+                <div>
+                  <span>Live mode</span>
+                  <strong>Work</strong>
+                  <small>Silent transcript, no audio output</small>
+                </div>
+              </article>
+            </div>
+
+            <div class="section-heading">
+              <div>
+                <div class="eyebrow">YOUR LEARNING PATH</div>
+                <h2>Choose your industry</h2>
+                <p>Start with the vocabulary and scenarios most likely to appear in professional communication.</p>
+              </div>
+              <button class="ghost-link" type="button" data-page="vocabulary">Open library</button>
+            </div>
+
+            <div class="industry-grid" id="industryGrid"></div>
+
+            <div class="home-bottom-grid">
+              <article class="panel next-panel">
+                <div class="panel-title-row">
+                  <div>
+                    <div class="eyebrow">A GOOD PLACE TO START</div>
+                    <h3>Today's practice</h3>
+                  </div>
+                  <span class="badge">Medical</span>
+                </div>
+                <p class="panel-body">Practise key phrases used in patient intake, treatment planning, symptoms, and clinical instructions.</p>
+                <button class="primary-btn" type="button" data-page="practice">Start practice</button>
+              </article>
+
+              <article class="panel next-panel">
+                <div class="panel-title-row">
+                  <div>
+                    <div class="eyebrow">REAL-WORLD MODE</div>
+                    <h3>Work / Meeting</h3>
+                  </div>
+                  <span class="badge soft">Silent</span>
+                </div>
+                <p class="panel-body">Use the professional interpreter workspace for on-screen transcription, translation, and vocabulary lookup.</p>
+                <button class="primary-btn" type="button" data-page="work">Open workspace</button>
+              </article>
+            </div>
+
+            <div class="disclaimer">
+              Learning support only. Always verify critical medical, legal, engineering, and safety terminology with qualified professionals.
+            </div>
+          </section>
+
+          <section class="page" id="page-vocabulary">
+            <div class="page-intro">
+              <div class="eyebrow">BUILD YOUR WORD BANK</div>
+              <h1>Vocabulary library</h1>
+              <p>Search and review terminology with Chinese characters, pinyin, and practical examples.</p>
+            </div>
+
+            <div class="toolbar">
+              <input id="vocabSearch" type="search" placeholder="Search vocabulary..." aria-label="Search vocabulary" />
+              <select id="industryFilter" aria-label="Filter by industry">
+                <option value="all">All industries</option>
+              </select>
+              <select id="levelFilter" aria-label="Filter by level">
+                <option value="all">All levels</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+              </select>
+            </div>
+
+            <div class="vocab-grid" id="vocabGrid"></div>
+          </section>
+
+          <section class="page" id="page-practice">
+            <div class="page-intro">
+              <div class="eyebrow">PRACTISE BOTH DIRECTIONS</div>
+              <h1>Interpretation practice</h1>
+              <p>Try bilingual interpretation with example scenarios and guided answers.</p>
+            </div>
+
+            <div class="practice-header">
+              <select id="practiceIndustry" aria-label="Select practice industry"></select>
+              <div class="direction-toggle">
+                <button class="direction-btn active" type="button" data-direction="zh-en">ZH → EN</button>
+                <button class="direction-btn" type="button" data-direction="en-zh">EN → ZH</button>
+              </div>
+            </div>
+
+            <div id="practiceCard" class="practice-card"></div>
+          </section>
+
+          <section class="page" id="page-work">
+            <div class="page-intro">
+              <div class="eyebrow">MEDICAL INTERPRETING</div>
+              <h1>Work / Meeting mode</h1>
+              <p>Silent on-screen transcription and translation for medical conversations.</p>
+            </div>
+
+            <div class="mode-switcher" role="tablist" aria-label="Interpreter mode switcher">
+              <button class="mode-tab active" type="button" data-mode="work">Work / Meeting</button>
+              <button class="mode-tab" type="button" data-mode="practice">Practice / Learning</button>
+            </div>
+
+            <div class="work-panel">
+              <div class="config-grid">
+                <label>
+                  Mode
+                  <select id="workModeSelect">
+                    <option value="work">Work / Meeting</option>
+                    <option value="practice">Practice / Learning</option>
+                  </select>
+                </label>
+
+                <label>
+                  Industry
+                  <select id="workIndustrySelect">
+                    <option value="medical">Medical</option>
+                    <option value="legal">Legal</option>
+                    <option value="business">Business</option>
+                    <option value="logistics">Logistics</option>
+                  </select>
+                </label>
+
+                <label>
+                  Languages
+                  <select id="languagePairSelect">
+                    <option value="zh-en">Mandarin Chinese ↔ English</option>
+                    <option value="en-zh">English ↔ Mandarin Chinese</option>
+                  </select>
+                </label>
+
+                <label>
+                  Speech direction
+                  <select id="speechDirectionSelect">
+                    <option value="auto">Automatic detection</option>
+                    <option value="en">English</option>
+                    <option value="zh">Mandarin Chinese</option>
+                  </select>
+                </label>
+
+                <label>
+                  Output
+                  <select id="outputModeSelect">
+                    <option value="silent-text">Silent, on-screen text only</option>
+                    <option value="text-and-audio">Text + audio</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="status-row">
+                <button id="startListeningBtn" class="primary-btn" type="button">Start listening</button>
+                <button id="stopListeningBtn" class="secondary-btn" type="button">Stop listening</button>
+                <button id="clearTranscriptBtn" class="secondary-btn" type="button">Clear transcript</button>
+                <button id="copyTranscriptBtn" class="secondary-btn" type="button">Copy transcript</button>
+                <select id="microphoneSelect" aria-label="Microphone selection"></select>
+              </div>
+
+              <div id="serviceStatus" class="service-status warning" role="status" aria-live="polite">
+                Speech translation service not configured. Browser microphone capture requires explicit permission.
+              </div>
+
+              <div id="practiceModeInfo" class="practice-mode-info hidden" aria-live="polite">
+                Practice / Learning audio playback is intentionally disabled until the user chooses to activate it explicitly. Work / Meeting mode stays silent.
+              </div>
+
+              <div class="transcript-shell">
+                <div class="transcript-header">
+                  <span>Original</span>
+                  <span>Translation</span>
+                </div>
+                <div id="liveTranscript" class="transcript-list" aria-live="polite"></div>
+              </div>
+
+              <div class="work-meta">
+                <h3>Medical vocabulary</h3>
+                <div class="search-row">
+                  <input id="workVocabSearch" type="search" placeholder="Search medical terminology..." aria-label="Search medical vocabulary" />
+                </div>
+                <div id="workVocabularyList" class="vocab-list"></div>
+              </div>
+
+              <div class="privacy-note">
+                Privacy notice: audio is only captured after explicit user action. The app does not send transcripts to analytics or store them persistently without clear user consent. Translation is assistance, not medical certification. This app does not replace a qualified interpreter or clinician.
+              </div>
+            </div>
+          </section>
+
+          <section class="page" id="page-scenarios">
+            <div class="page-intro">
+              <div class="eyebrow">REAL-WORLD REHEARSAL</div>
+              <h1>Workplace scenarios</h1>
+              <p>Refine your interpretation in realistic situations for healthcare and professional communication.</p>
+            </div>
+
+            <div class="scenario-filters" id="scenarioFilters"></div>
+            <div class="scenario-grid" id="scenarioGrid"></div>
+          </section>
+
+          <section class="page" id="page-quiz">
+            <div class="page-intro">
+              <div class="eyebrow">CHECK WHAT YOU KNOW</div>
+              <h1>Quick quiz</h1>
+              <p>Review key vocabulary and reinforce your understanding.</p>
+            </div>
+
+            <div class="quiz-card">
+              <div class="quiz-meta">
+                <span id="quizProgress">QUESTION 1 OF 5</span>
+                <div class="progress-bar"><span id="quizProgressBar"></span></div>
+              </div>
+              <div id="quizQuestion" class="quiz-question"></div>
+              <div id="quizOptions" class="quiz-options"></div>
+              <div id="quizFeedback" class="quiz-feedback"></div>
+            </div>
+          </section>
+
+          <section class="page" id="page-glossary">
+            <div class="page-intro">
+              <div class="eyebrow">YOUR PERSONAL WORD BANK</div>
+              <h1>My glossary</h1>
+              <p>Keep important phrases and terms close at hand for your next session.</p>
+            </div>
+
+            <div class="toolbar small">
+              <input id="glossarySearch" type="search" placeholder="Search saved words..." aria-label="Search saved glossary items" />
+            </div>
+
+            <div id="glossaryList" class="glossary-list"></div>
+          </section>
+
+          <footer class="footer">
+            <span>© 2026 ProInterpreter AI · Built for confident communication</span>
+            <span>Learn · Practise · Grow</span>
+          </footer>
+        </div>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
 </html>
